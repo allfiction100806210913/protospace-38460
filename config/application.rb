@@ -10,7 +10,7 @@ module Protospace38460
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    Rails.application.config.assets.unknown_asset_fallback = true
+  
 
 
 

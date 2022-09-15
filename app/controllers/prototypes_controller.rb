@@ -5,11 +5,10 @@ class PrototypesController < ApplicationController
 
 
     def index
-      @prototypes = Prototype.all
+      @prototypes = Prototype.includes(:user)
     end
  
     def show
-     @prototype = Prototype.find(params[:id])
      @comment = Comment.new
      @comments = @prototype.comments
     end
@@ -22,13 +21,11 @@ class PrototypesController < ApplicationController
     end
 
     def update
-
       if @prototype.update(prototype_params)
         redirect_to prototype_path(@prototype)
       else
         render :edit
       end
-      
     end
     
     def destroy
